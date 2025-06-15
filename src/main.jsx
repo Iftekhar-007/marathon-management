@@ -7,6 +7,9 @@ import Root from "./Layout/Root.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./Pages/Home.jsx";
+import LogIn from "./Components/Login.jsx";
+import AuthProvider from "./Context/AuthProvider.jsx";
+import SignUp from "./Components/SignUp.jsx";
 // import Login from "./Components/Login.jsx";
 
 const router = createBrowserRouter([
@@ -18,12 +21,22 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
       },
+      {
+        path: "/login",
+        Component: LogIn,
+      },
+      {
+        path: "/signup",
+        Component: SignUp,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );

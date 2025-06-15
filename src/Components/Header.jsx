@@ -60,7 +60,7 @@ const Header = () => {
             Ru<span className="text-orange-500">N</span>N
           </NavLink>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        {/* <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
               <NavLink to="/">Home</NavLink>
@@ -75,9 +75,25 @@ const Header = () => {
               <NavLink>Create Group</NavLink>
             </li>
           </ul>
-        </div>
+        </div> */}
         <div className="navbar-end">
-          <div>
+          <div className="navbar-center hidden lg:flex">
+            <ul className="menu menu-horizontal px-1">
+              <li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink>All Groups</NavLink>
+              </li>
+              <li>
+                <NavLink>My groups</NavLink>
+              </li>
+              <li>
+                <NavLink>Create Group</NavLink>
+              </li>
+            </ul>
+          </div>
+          <div className="flex items-center gap-3">
             <NavLink to="/login" className="btn">
               Log In
             </NavLink>
