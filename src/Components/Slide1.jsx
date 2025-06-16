@@ -14,12 +14,11 @@ const Slide1 = () => {
         <div className="hero-content text-neutral-content text-center">
           <div className="">
             <h1 className="mb-5 text-7xl font-bold font-roboto leading-20">
-              Discover New Passions Near You
+              Run Your Best Race
             </h1>
             <p className="mb-5 font-roboto text-base">
-              From painting to photography, gardening to gaming—find local
-              groups that share your <br /> interests and make new friends along
-              the way
+              Join our marathon, train with passion, and cross the finish line
+              stronger. Your journey to greatness starts here in 2025!
             </p>
             <button className="btn btn-primary">Get Started</button>
           </div>

@@ -10,6 +10,8 @@ import Home from "./Pages/Home.jsx";
 import LogIn from "./Components/Login.jsx";
 import AuthProvider from "./Context/AuthProvider.jsx";
 import SignUp from "./Components/SignUp.jsx";
+import Marathons from "./Pages/Marathons.jsx";
+import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
 // import Login from "./Components/Login.jsx";
 
 const router = createBrowserRouter([
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         Component: SignUp,
+      },
+      {
+        path: "/marathons",
+        Component: Marathons,
+      },
+      {
+        path: "/dashboard",
+        Component: Dashboard,
       },
     ],
   },

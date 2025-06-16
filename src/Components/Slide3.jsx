@@ -14,12 +14,12 @@ const Slide3 = () => {
         <div className="hero-content text-neutral-content text-center">
           <div className="">
             <h1 className="mb-5 text-7xl font-bold font-roboto leading-20">
-              Start Your <br /> Own Hobby Group Today
+              Conquer the Course
             </h1>
             <p className="mb-5 font-roboto text-base ">
-              Passionate about something unique? Create a group and bring others{" "}
-              <br />
-              along for the journey. It's free, simple, and rewarding.
+              Challenge yourself on our scenic marathon route. Push your limits,
+              achieve your <br /> goals, and become a champion at our 2025
+              event!
             </p>
           </div>
         </div>
