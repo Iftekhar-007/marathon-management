@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         Component: AddMarathon,
       },
       {
-        path: "/marathon/:id",
+        path: "/marathons/:id",
         Component: MarathonDetails,
       },
     ],
