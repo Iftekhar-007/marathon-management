@@ -13,6 +13,7 @@ import SignUp from "./Components/SignUp.jsx";
 import Marathons from "./Pages/Marathons.jsx";
 import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
 import AddMarathon from "./Pages/AddMarathon/AddMarathon.jsx";
+import MarathonDetails from "./Pages/MarathonDetails.jsx";
 // import Login from "./Components/Login.jsx";
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/addmarathon",
         Component: AddMarathon,
+      },
+      {
+        path: "/marathon/:id",
+        Component: MarathonDetails,
       },
     ],
   },

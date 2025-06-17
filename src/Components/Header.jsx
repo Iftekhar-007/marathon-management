@@ -130,15 +130,17 @@ const Header = () => {
               <NavLink to="/signUp" className="btn">
                 Register
               </NavLink>
-
-              <button
-                onClick={toggleTheme}
-                className="btn border-0 bg-transparent flex items-center gap-2"
-              >
-                {theme === "light" ? <FaMoon /> : <FaSun />}
-              </button>
             </div>
           )}
+
+          <div>
+            <button
+              onClick={toggleTheme}
+              className="btn border-0 bg-transparent flex items-center gap-2 ml-3"
+            >
+              {theme === "light" ? <FaMoon /> : <FaSun />}
+            </button>
+          </div>
         </div>
       </div>
     </div>

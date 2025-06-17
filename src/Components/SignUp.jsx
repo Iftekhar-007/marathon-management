@@ -42,7 +42,7 @@ const SignUp = () => {
           uid: user.uid,
         };
 
-        fetch("https://hobby-hub-server-lilac.vercel.app/users", {
+        fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -156,26 +156,6 @@ const SignUp = () => {
         console.log(error.message);
       });
   };
-
-  // const handleLogInWithGoogle = () => {
-  //   logInWithGoogle()
-  //     .then((result) => {
-  //       Swal.fire({
-  //         title: "User Logged In Successfully!",
-  //         icon: "success",
-  //         draggable: true,
-  //         // navigate("/");
-  //       });
-  //       navigate(location.state?.from?.pathname || "/");
-  //     })
-  //     .then((error) => {
-  //       Swal.fire({
-  //         icon: "error",
-  //         title: "Oops...",
-  //         // text: "Password must have at least 1 uppercase, 1 lowercase letter, and be at least 6 characters long!",
-  //       });
-  //     });
-  // };
 
   return (
     <div className="card-body w-96 mx-auto mt-32 shadow">

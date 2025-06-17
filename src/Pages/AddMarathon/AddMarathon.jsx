@@ -33,7 +33,7 @@ const AddMarathon = () => {
       createdAt: new Date(createdAt),
       totalRegistrations: parseInt(totalRegistrations),
       creatorEmail: user?.email,
-      creatorName: user?.displayName || "Anonymous",
+      creatorName: user?.displayName,
     };
 
     try {
