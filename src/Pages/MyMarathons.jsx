@@ -2,8 +2,13 @@ import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import MyMaraCard from "../Components/MyMaraCard";
 import { CiLocationOn } from "react-icons/ci";
+import { Navigate } from "react-router";
+import { useNavigate } from "react-router";
+// import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const MyMarathons = () => {
+  const navigate = useNavigate();
   const { user } = use(AuthContext);
   const [createdMarathon, setCreatedMarathon] = useState([]);
 
@@ -12,6 +17,50 @@ const MyMarathons = () => {
       .then((res) => res.json())
       .then((data) => setCreatedMarathon(data));
   }, [user.email]);
+
+  const handleDelete = (id) => {
+    console.log();
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      console.log(result.isConfirmed);
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/marathons/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              const remainningMarathon = createdMarathon.filter(
+                (mar) => mar._id !== id
+              );
+              setCreatedMarathon(remainningMarathon);
+              console.log(result);
+            }
+            console.log("after delete", data);
+          });
+        // Swal.fire({
+        //   title: "Deleted!",
+        //   text: "Your file has been deleted.",
+        //   icon: "success",
+        // });
+        // console.log(result);
+      }
+    });
+  };
+
   return (
     <div>
       <h2 className="text-2xl md:text-3xl lg:text-5xl text-center font-bold mb-10">
@@ -26,25 +75,14 @@ const MyMarathons = () => {
         <table className="table">
           <thead>
             <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
-              </th>
               <th>Marathons</th>
               <th>Date(marathon start day)</th>
-              <th>View</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             {createdMarathon.map((mar) => (
               <tr key={mar._id}>
-                <th>
-                  <label>
-                    <input type="checkbox" className="checkbox" />
-                  </label>
-                </th>
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -61,10 +99,27 @@ const MyMarathons = () => {
                   </div>
                 </td>
                 <td>{mar.marathonStartDate}</td>
-                <td>Purple</td>
-                <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
-                </th>
+
+                <td className="space-x-2">
+                  <button
+                    onClick={() => navigate(`/marathons/${mar._id}`)}
+                    className="btn btn-sm btn-info"
+                  >
+                    Details
+                  </button>
+                  <button
+                    onClick={() => navigate(`/dashboard/edit/${mar._id}`)}
+                    className="btn btn-sm btn-warning"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(mar._id)}
+                    className="btn btn-sm btn-error"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>

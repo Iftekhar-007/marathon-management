@@ -17,6 +17,7 @@ import MarathonDetails from "./Pages/MarathonDetails.jsx";
 import NotFound from "./Pages/notFound.jsx";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes.jsx";
 import MyMarathons from "./Pages/MyMarathons.jsx";
+import EditMarathon from "./Pages/EditMarathon.jsx";
 // import Login from "./Components/Login.jsx";
 
 const router = createBrowserRouter([
@@ -70,6 +71,15 @@ const router = createBrowserRouter([
             ),
           },
           {
+            path: "edit/:id",
+            element: (
+              <PrivateRoutes>
+                <EditMarathon></EditMarathon>
+              </PrivateRoutes>
+            ),
+          },
+
+          {
             path: "my-applies",
             element: <div>My Apply List page</div>, // Replace with your real component
           },
@@ -85,6 +95,7 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
       },
+
       {
         path: "*",
         Component: NotFound,
