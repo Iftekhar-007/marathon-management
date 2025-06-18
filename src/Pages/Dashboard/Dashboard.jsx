@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <div className="grid grid-cols-12 min-h-screen lg:w-[1440px] mx-auto my-20">
       {/* Left Navigation */}
-      <nav className="col-span-3 bg-base-200 p-4 space-y-4">
+      <nav className="col-span-12 md:col-span-3 bg-base-200 p-4 space-y-4">
         <h2 className="text-xl font-bold mb-4 text-center">Dashboard</h2>
         <ul className="space-y-2">
           <li>
@@ -42,7 +42,7 @@ const Dashboard = () => {
       </nav>
 
       {/* Dynamic Content */}
-      <main className="col-span-9 bg-base-100 p-6">
+      <main className="col-span-12 md:col-span-9 bg-base-100 p-6">
         <Outlet />
       </main>
     </div>
