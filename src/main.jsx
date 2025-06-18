@@ -14,6 +14,9 @@ import Marathons from "./Pages/Marathons.jsx";
 import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
 import AddMarathon from "./Pages/AddMarathon/AddMarathon.jsx";
 import MarathonDetails from "./Pages/MarathonDetails.jsx";
+import NotFound from "./Pages/notFound.jsx";
+import PrivateRoutes from "./PrivateRoutes/PrivateRoutes.jsx";
+import MyMarathons from "./Pages/MyMarathons.jsx";
 // import Login from "./Components/Login.jsx";
 
 const router = createBrowserRouter([
@@ -35,19 +38,56 @@ const router = createBrowserRouter([
       },
       {
         path: "/marathons",
-        Component: Marathons,
+        // Component: Marathons,
+        element: (
+          <PrivateRoutes>
+            <Marathons></Marathons>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dashboard",
-        Component: Dashboard,
+        element: (
+          <PrivateRoutes>
+            <Dashboard />
+          </PrivateRoutes>
+        ),
+        children: [
+          {
+            path: "addmarathon",
+            element: (
+              <PrivateRoutes>
+                <AddMarathon></AddMarathon>
+              </PrivateRoutes>
+            ),
+          },
+          {
+            path: "mymarathons",
+            element: (
+              <PrivateRoutes>
+                <MyMarathons></MyMarathons>
+              </PrivateRoutes>
+            ),
+          },
+          {
+            path: "my-applies",
+            element: <div>My Apply List page</div>, // Replace with your real component
+          },
+        ],
       },
-      {
-        path: "/addmarathon",
-        Component: AddMarathon,
-      },
+
       {
         path: "/marathons/:id",
-        Component: MarathonDetails,
+        // Component: MarathonDetails,
+        element: (
+          <PrivateRoutes>
+            <MarathonDetails></MarathonDetails>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "*",
+        Component: NotFound,
       },
     ],
   },

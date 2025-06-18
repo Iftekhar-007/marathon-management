@@ -1,0 +1,8 @@
+ul li a.active{
+    text-decoration: underline;
+}
+
+.swiper {
+  width:auto;
+  height: fit-content;
+}

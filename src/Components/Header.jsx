@@ -109,7 +109,7 @@ const Header = () => {
               <img
                 className="w-[40px] rounded-[50%] mr-3"
                 src={user.photoURL}
-                alt=""
+                alt="avatar"
                 // title={user.displayName}
                 data-tooltip-id="my-tooltip"
                 data-tooltip-content={user.displayName}
