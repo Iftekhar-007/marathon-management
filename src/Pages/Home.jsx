@@ -1,6 +1,9 @@
 import React from "react";
 import Sliders from "../Components/Sliders";
 import Marathons from "./Marathons";
+import UpComing from "../Components/UpComing";
+import Legends from "../Components/Legends";
+import Sponsor from "../Components/Sponsor";
 
 const Home = () => {
   return (
@@ -9,6 +12,9 @@ const Home = () => {
       <div>
         <Sliders></Sliders>
         <Marathons limit={6} upcoming={true} />
+        <UpComing></UpComing>
+        <Legends></Legends>
+        <Sponsor></Sponsor>
       </div>
     </>
   );
