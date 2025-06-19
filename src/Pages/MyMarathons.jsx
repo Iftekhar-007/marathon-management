@@ -43,7 +43,7 @@ const MyMarathons = () => {
               title: "Session Expired",
               text: "Please log in again.",
             }).then(() => {
-              logOutUser(); // Make sure this is implemented in your AuthContext
+              logOutUser();
               navigate("/login");
             });
           } else {
