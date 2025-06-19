@@ -10,34 +10,20 @@ const MyApply = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user?.email) {
-      fetch(`http://localhost:5000/applications?email=${user.email}`)
+    if ((user?.email, user?.accessToken)) {
+      fetch(`http://localhost:5000/applications?email=${user.email}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
         .then((res) => res.json())
         .then((data) => setApplications(data));
     }
-  }, [user?.email]);
+  }, [user?.email, user?.accessToken]);
 
   const handleEdit = (application) => {
     navigate(`/dashboard/update/${application._id}`, { state: application });
   };
-
-  //   const handleDelete = async (id) => {
-  //     const confirm = window.confirm("Are you sure you want to delete?");
-  //     if (!confirm) return;
-
-  //     try {
-  //       const res = await fetch(`http://localhost:5000/applications/${id}`, {
-  //         method: "DELETE",
-  //       });
-  //       const data = await res.json();
-
-  //       if (data.deletedCount > 0) {
-  //         setApplications((prev) => prev.filter((a) => a._id !== id));
-  //       }
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
 
   const handleDelete = (id) => {
     console.log();
@@ -51,7 +37,7 @@ const MyApply = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      console.log(result.isConfirmed);
+      // console.log(result.isConfirmed);
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/applications/${id}`, {
           method: "DELETE",
@@ -68,9 +54,9 @@ const MyApply = () => {
                 (app) => app._id !== id
               );
               setApplications(remainningMarathon);
-              console.log(result);
+              // console.log(result);
             }
-            console.log("after delete", data);
+            // console.log("after delete", data);
           });
         // Swal.fire({
         //   title: "Deleted!",

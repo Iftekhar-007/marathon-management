@@ -46,6 +46,14 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, updatedData);
   };
 
+  const getToken = async () => {
+    const currentUser = auth.currentUser;
+    if (currentUser) {
+      return await currentUser.getIdToken(true); // force refresh
+    }
+    return null;
+  };
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("get user by effect", currentUser);
@@ -66,6 +74,7 @@ const AuthProvider = ({ children }) => {
     logOutUser,
     updateUser,
     setUser,
+    getToken,
   };
   return <AuthContext value={userInfo}>{children}</AuthContext>;
 };

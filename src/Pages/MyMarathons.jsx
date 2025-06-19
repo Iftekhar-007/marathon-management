@@ -13,10 +13,14 @@ const MyMarathons = () => {
   const [createdMarathon, setCreatedMarathon] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mymarathons?email=${user.email}`)
+    fetch(`http://localhost:5000/mymarathons?email=${user.email}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setCreatedMarathon(data));
-  }, [user.email]);
+  }, [user.email, user.accessToken]);
 
   const handleDelete = (id) => {
     console.log();
