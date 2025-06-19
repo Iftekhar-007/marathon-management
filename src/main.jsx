@@ -18,6 +18,9 @@ import NotFound from "./Pages/notFound.jsx";
 import PrivateRoutes from "./PrivateRoutes/PrivateRoutes.jsx";
 import MyMarathons from "./Pages/MyMarathons.jsx";
 import EditMarathon from "./Pages/EditMarathon.jsx";
+import MarathonApply from "./Pages/MarathonApply.jsx";
+import MyApply from "./Pages/MyApply.jsx";
+import UpdateApply from "./Pages/UpdateApply.jsx";
 // import Login from "./Components/Login.jsx";
 
 const router = createBrowserRouter([
@@ -78,10 +81,22 @@ const router = createBrowserRouter([
               </PrivateRoutes>
             ),
           },
+          {
+            path: "update/:id",
+            element: (
+              <PrivateRoutes>
+                <UpdateApply></UpdateApply>
+              </PrivateRoutes>
+            ),
+          },
 
           {
-            path: "my-applies",
-            element: <div>My Apply List page</div>, // Replace with your real component
+            path: "myapply",
+            element: (
+              <PrivateRoutes>
+                <MyApply></MyApply>
+              </PrivateRoutes>
+            ),
           },
         ],
       },
@@ -95,7 +110,15 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
       },
-
+      {
+        path: "/marathonapply/:id",
+        // Component: MarathonApply,
+        element: (
+          <PrivateRoutes>
+            <MarathonApply></MarathonApply>
+          </PrivateRoutes>
+        ),
+      },
       {
         path: "*",
         Component: NotFound,

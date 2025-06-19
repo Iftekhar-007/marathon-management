@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { NavLink, useParams } from "react-router";
 import locationLot from "../assets/location.json";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Lottie from "lottie-react";
@@ -94,7 +94,8 @@ const MarathonDetails = () => {
           </p>
         </div>
 
-        <button
+        <NavLink
+          to={`/marathonapply/${detailData._id}`}
           className={`btn ${
             new Date() < new Date(detailData.startRegistrationDate) ||
             new Date() > new Date(detailData.endRegistrationDate)
@@ -107,7 +108,7 @@ const MarathonDetails = () => {
           }
         >
           Registration Now
-        </button>
+        </NavLink>
       </div>
 
       <div className="md:col-span-3 col-span-12">

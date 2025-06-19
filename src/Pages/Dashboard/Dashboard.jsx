@@ -30,7 +30,7 @@ const Dashboard = () => {
           </li>
           <li>
             <NavLink
-              to="my-applies"
+              to="myapply"
               className={({ isActive }) =>
                 `btn w-full ${isActive ? "btn-primary" : "btn-ghost"}`
               }

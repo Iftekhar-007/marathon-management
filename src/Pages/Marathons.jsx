@@ -1,67 +1,13 @@
-// // import React, { useEffect, useState } from "react";
-// // import MarathonCard from "../Components/MarathonCard";
-
-// // const Marathons = () => {
-// //   const [marathons, setMarathons] = useState([]);
-// //   useEffect(() => {
-// //     fetch("http://localhost:5000/marathons")
-// //       .then((res) => res.json())
-// //       .then((data) => setMarathons(data));
-// //   }, []);
-// //   return (
-// //     <div className="lg:w-[1440px] mx-auto my-20">
-// //       <h2 className="lg:text-5xl font-bold mb-10 text-center">Marathons</h2>
-// //       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-// //         {marathons.map((marathon) => (
-// //           <MarathonCard key={marathon._id} marathon={marathon}></MarathonCard>
-// //         ))}
-// //       </div>
-// //     </div>
-// //   );
-// // };
-
-// // export default Marathons;
-
-// import React, { useEffect, useState } from "react";
-// import MarathonCard from "../Components/MarathonCard";
-
-// const Marathons = ({ limit }) => {
-//   const [marathons, setMarathons] = useState([]);
-
-//   useEffect(() => {
-//     const url = limit
-//       ? `http://localhost:5000/marathons?limit=${limit}`
-//       : "http://localhost:5000/marathons";
-
-//     fetch(url)
-//       .then((res) => res.json())
-//       .then((data) => setMarathons(data));
-//   }, [limit]);
-
-//   return (
-//     <div className="lg:w-[1440px] mx-auto my-20">
-//       <h2 className="lg:text-5xl font-bold mb-10 text-center">Marathons</h2>
-//       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-//         {marathons.map((marathon) => (
-//           <MarathonCard key={marathon._id} marathon={marathon} />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Marathons;
-
 import React, { useEffect, useState } from "react";
 import MarathonCard from "../Components/MarathonCard";
 
 const Marathons = ({ limit, upcoming }) => {
   const [marathons, setMarathons] = useState([]);
+  const [sortLatestFirst, setSortLatestFirst] = useState(true);
 
   useEffect(() => {
     let url = "http://localhost:5000/marathons";
 
-    // Add limit param if needed
     if (limit) {
       url += `?limit=${limit}`;
     }
@@ -69,26 +15,37 @@ const Marathons = ({ limit, upcoming }) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
+        let result = [...data];
+
         if (upcoming) {
           const today = new Date();
-
-          // Filter out past marathons
-          const filtered = data.filter(
-            (m) => new Date(m.marathonStartDate) > today
-          );
-
-          setMarathons(filtered);
-        } else {
-          setMarathons(data);
+          result = result.filter((m) => new Date(m.marathonStartDate) > today);
         }
+
+        result.sort((a, b) =>
+          sortLatestFirst
+            ? new Date(b.createdAt) - new Date(a.createdAt)
+            : new Date(a.createdAt) - new Date(b.createdAt)
+        );
+
+        setMarathons(result);
       });
-  }, [limit, upcoming]);
+  }, [limit, upcoming, sortLatestFirst]);
 
   return (
     <div className="lg:w-[1440px] mx-auto my-20">
-      <h2 className="lg:text-5xl font-bold mb-10 text-center">
+      <h2 className="lg:text-5xl font-bold mb-6 text-center">
         {upcoming ? "Upcoming Marathons" : "Marathons"}
       </h2>
+
+      <div className="flex justify-end mb-4 px-4">
+        <button
+          className="btn btn-sm btn-outline"
+          onClick={() => setSortLatestFirst((prev) => !prev)}
+        >
+          Sort by: {sortLatestFirst ? "Latest" : "Oldest"}
+        </button>
+      </div>
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
         {marathons.map((marathon) => (
