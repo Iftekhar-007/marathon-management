@@ -4,22 +4,53 @@ import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const MyApply = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOutUser } = useContext(AuthContext);
   const [applications, setApplications] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
+  // useEffect(() => {
+  //   if ((user?.email, user?.accessToken)) {
+  //     fetch(`http://localhost:5000/applications?email=${user.email}`, {
+  //       headers: {
+  //         authorization: `Bearer ${user.accessToken}`,
+  //       },
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => setApplications(data));
+  //   }
+  // }, [user?.email, user?.accessToken]);
+
   useEffect(() => {
-    if ((user?.email, user?.accessToken)) {
+    if (user?.email && user?.accessToken) {
       fetch(`http://localhost:5000/applications?email=${user.email}`, {
         headers: {
           authorization: `Bearer ${user.accessToken}`,
         },
       })
-        .then((res) => res.json())
-        .then((data) => setApplications(data));
+        .then((res) => {
+          if (res.status === 401 || res.status === 403) {
+            throw new Error("unauthorized");
+          }
+          return res.json();
+        })
+        .then((data) => setApplications(data))
+        .catch((err) => {
+          if (err.message === "unauthorized") {
+            Swal.fire({
+              icon: "error",
+              title: "Session Expired",
+              text: "Please log in again.",
+            }).then(() => {
+              logOutUser(); // Make sure this is implemented in your AuthContext
+              navigate("/login");
+            });
+          } else {
+            console.error(err);
+          }
+        });
     }
-  }, [user?.email, user?.accessToken]);
+  }, [user?.email, user?.accessToken, logOutUser, navigate]);
 
   const handleEdit = (application) => {
     navigate(`/dashboard/update/${application._id}`, { state: application });

@@ -9,18 +9,49 @@ import Swal from "sweetalert2";
 
 const MyMarathons = () => {
   const navigate = useNavigate();
-  const { user } = use(AuthContext);
+  const { user, logOutUser } = use(AuthContext);
   const [createdMarathon, setCreatedMarathon] = useState([]);
 
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/mymarathons?email=${user.email}`, {
+  //     headers: {
+  //       authorization: `Bearer ${user.accessToken}`,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => setCreatedMarathon(data));
+  // }, [user.email, user.accessToken]);
+
   useEffect(() => {
-    fetch(`http://localhost:5000/mymarathons?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setCreatedMarathon(data));
-  }, [user.email, user.accessToken]);
+    if (user?.email && user?.accessToken) {
+      fetch(`http://localhost:5000/mymarathons?email=${user.email}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
+        .then((res) => {
+          if (res.status === 401 || res.status === 403) {
+            throw new Error("unauthorized");
+          }
+          return res.json();
+        })
+        .then((data) => setCreatedMarathon(data))
+        .catch((err) => {
+          if (err.message === "unauthorized") {
+            Swal.fire({
+              icon: "error",
+              title: "Session Expired",
+              text: "Please log in again.",
+            }).then(() => {
+              logOutUser(); // Make sure this is implemented in your AuthContext
+              navigate("/login");
+            });
+          } else {
+            console.error(err);
+          }
+        });
+    }
+  }, [user?.email, user?.accessToken, logOutUser, navigate]);
 
   const handleDelete = (id) => {
     console.log();
