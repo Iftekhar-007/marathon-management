@@ -11,7 +11,7 @@ const MyApply = () => {
 
   // useEffect(() => {
   //   if ((user?.email, user?.accessToken)) {
-  //     fetch(`https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/applications?email=${user.email}`, {
+  //     fetch(`https://marathon-hub-ecru.vercel.app/applications?email=${user.email}`, {
   //       headers: {
   //         authorization: `Bearer ${user.accessToken}`,
   //       },
@@ -24,7 +24,7 @@ const MyApply = () => {
   useEffect(() => {
     if (user?.email && user?.accessToken) {
       fetch(
-        `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/applications?email=${user.email}`,
+        `https://marathon-hub-ecru.vercel.app/applications?email=${user.email}`,
         {
           headers: {
             authorization: `Bearer ${user.accessToken}`,
@@ -73,12 +73,9 @@ const MyApply = () => {
     }).then((result) => {
       // console.log(result.isConfirmed);
       if (result.isConfirmed) {
-        fetch(
-          `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/applications/${id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://marathon-hub-ecru.vercel.app/applications/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {

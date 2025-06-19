@@ -35,9 +35,7 @@ const MarathonApply = () => {
   });
 
   useEffect(() => {
-    fetch(
-      `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/marathons/${id}`
-    )
+    fetch(`https://marathon-hub-ecru.vercel.app/marathons/${id}`)
       .then((res) => res.json())
       .then((data) => setMarathon(data));
   }, [id]);
@@ -61,7 +59,7 @@ const MarathonApply = () => {
     try {
       // 1. Save registration
       const res = await fetch(
-        `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/applications`,
+        `https://marathon-hub-ecru.vercel.app/applications`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

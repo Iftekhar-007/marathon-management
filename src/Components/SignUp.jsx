@@ -42,16 +42,13 @@ const SignUp = () => {
           uid: user.uid,
         };
 
-        fetch(
-          "https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/users",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newUser),
-          }
-        )
+        fetch("https://marathon-hub-ecru.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.insertedId) {

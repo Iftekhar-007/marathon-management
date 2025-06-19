@@ -24,7 +24,7 @@ const UpdateApply = () => {
 
     try {
       const res = await fetch(
-        `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/applications/${oldData._id}`,
+        `https://marathon-hub-ecru.vercel.app/applications/${oldData._id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

@@ -13,7 +13,7 @@ const MyMarathons = () => {
   const [createdMarathon, setCreatedMarathon] = useState([]);
 
   // useEffect(() => {
-  //   fetch(`https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/mymarathons?email=${user.email}`, {
+  //   fetch(`https://marathon-hub-ecru.vercel.app/mymarathons?email=${user.email}`, {
   //     headers: {
   //       authorization: `Bearer ${user.accessToken}`,
   //     },
@@ -25,7 +25,7 @@ const MyMarathons = () => {
   useEffect(() => {
     if (user?.email && user?.accessToken) {
       fetch(
-        `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/mymarathons?email=${user.email}`,
+        `https://marathon-hub-ecru.vercel.app/mymarathons?email=${user.email}`,
         {
           headers: {
             authorization: `Bearer ${user.accessToken}`,
@@ -70,12 +70,9 @@ const MyMarathons = () => {
     }).then((result) => {
       console.log(result.isConfirmed);
       if (result.isConfirmed) {
-        fetch(
-          `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/marathons/${id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://marathon-hub-ecru.vercel.app/marathons/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {

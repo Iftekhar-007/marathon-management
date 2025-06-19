@@ -6,8 +6,7 @@ const Marathons = ({ limit, upcoming }) => {
   const [sortLatestFirst, setSortLatestFirst] = useState(true);
 
   useEffect(() => {
-    let url =
-      "https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/marathons";
+    let url = "https://marathon-hub-ecru.vercel.app/marathons";
 
     if (limit) {
       url += `?limit=${limit}`;

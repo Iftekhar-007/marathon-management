@@ -39,7 +39,7 @@ const AddMarathon = () => {
     try {
       //   const token = await user.getIdToken();
       const res = await fetch(
-        "https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/marathons",
+        "https://marathon-hub-ecru.vercel.app/marathons",
         {
           method: "POST",
           headers: {
