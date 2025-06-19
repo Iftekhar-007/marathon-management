@@ -38,13 +38,16 @@ const AddMarathon = () => {
 
     try {
       //   const token = await user.getIdToken();
-      const res = await fetch("http://localhost:5000/marathons", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(marathonData),
-      });
+      const res = await fetch(
+        "https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/marathons",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(marathonData),
+        }
+      );
 
       const result = await res.json();
       if (res.ok) {

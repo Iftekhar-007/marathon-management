@@ -14,7 +14,9 @@ const MarathonDetails = () => {
   // const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/marathons/${id}`)
+    fetch(
+      `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/marathons/${id}`
+    )
       .then((res) => res.json())
       .then((data) => setDetailData(data));
   }, [id]);

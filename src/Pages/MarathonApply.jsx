@@ -35,7 +35,9 @@ const MarathonApply = () => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/marathons/${id}`)
+    fetch(
+      `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/marathons/${id}`
+    )
       .then((res) => res.json())
       .then((data) => setMarathon(data));
   }, [id]);
@@ -58,11 +60,14 @@ const MarathonApply = () => {
 
     try {
       // 1. Save registration
-      const res = await fetch(`http://localhost:5000/applications`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(registrationData),
-      });
+      const res = await fetch(
+        `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/applications`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(registrationData),
+        }
+      );
 
       toast.success("Successfully Registered!");
       navigate("/dashboard/myapply");

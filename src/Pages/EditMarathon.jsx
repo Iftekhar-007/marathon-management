@@ -19,7 +19,9 @@ const EditMarathon = () => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/marathons/${id}`)
+    fetch(
+      `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/marathons/${id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMarathonData({
@@ -43,11 +45,14 @@ const EditMarathon = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/marathons/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(marathonData),
-      });
+      const res = await fetch(
+        `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/marathons/${id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(marathonData),
+        }
+      );
       const result = await res.json();
       if (res.ok) {
         toast.success("Marathon updated successfully!");

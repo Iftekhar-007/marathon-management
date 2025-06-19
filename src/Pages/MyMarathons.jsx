@@ -13,7 +13,7 @@ const MyMarathons = () => {
   const [createdMarathon, setCreatedMarathon] = useState([]);
 
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/mymarathons?email=${user.email}`, {
+  //   fetch(`https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/mymarathons?email=${user.email}`, {
   //     headers: {
   //       authorization: `Bearer ${user.accessToken}`,
   //     },
@@ -24,11 +24,14 @@ const MyMarathons = () => {
 
   useEffect(() => {
     if (user?.email && user?.accessToken) {
-      fetch(`http://localhost:5000/mymarathons?email=${user.email}`, {
-        headers: {
-          authorization: `Bearer ${user.accessToken}`,
-        },
-      })
+      fetch(
+        `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/mymarathons?email=${user.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
         .then((res) => {
           if (res.status === 401 || res.status === 403) {
             throw new Error("unauthorized");
@@ -67,9 +70,12 @@ const MyMarathons = () => {
     }).then((result) => {
       console.log(result.isConfirmed);
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/marathons/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://marathon-lqsn7kxn5-iftekhar-007s-projects.vercel.app/marathons/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
