@@ -4,10 +4,13 @@ import Marathons from "./Marathons";
 
 const Home = () => {
   return (
-    <div>
-      <Sliders></Sliders>
-      <Marathons limit={6} upcoming={true} />
-    </div>
+    <>
+      <title>Home | Marathon Hub</title>
+      <div>
+        <Sliders></Sliders>
+        <Marathons limit={6} upcoming={true} />
+      </div>
+    </>
   );
 };
 
