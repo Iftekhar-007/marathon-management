@@ -42,43 +42,46 @@ const UpdateApply = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-xl mx-auto p-4 mt-10">
-      <h2 className="text-xl mb-4 font-bold text-center">
-        Update Registration
-      </h2>
-      <input
-        type="text"
-        name="firstName"
-        value={formData.firstName}
-        onChange={handleChange}
-        className="input input-bordered w-full mb-2"
-        required
-      />
-      <input
-        type="text"
-        name="lastName"
-        value={formData.lastName}
-        onChange={handleChange}
-        className="input input-bordered w-full mb-2"
-        required
-      />
-      <input
-        type="text"
-        name="contact"
-        value={formData.contact}
-        onChange={handleChange}
-        className="input input-bordered w-full mb-2"
-        required
-      />
-      <textarea
-        name="additionalInfo"
-        value={formData.additionalInfo}
-        onChange={handleChange}
-        className="textarea textarea-bordered w-full mb-4"
-        rows={3}
-      ></textarea>
-      <button className="btn btn-primary w-full">Update</button>
-    </form>
+    <div>
+      <title>Update Applications | Marathon Hub</title>
+      <form onSubmit={handleSubmit} className="max-w-xl mx-auto p-4 mt-10">
+        <h2 className="text-xl mb-4 font-bold text-center">
+          Update Registration
+        </h2>
+        <input
+          type="text"
+          name="firstName"
+          value={formData.firstName}
+          onChange={handleChange}
+          className="input input-bordered w-full mb-2"
+          required
+        />
+        <input
+          type="text"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
+          className="input input-bordered w-full mb-2"
+          required
+        />
+        <input
+          type="text"
+          name="contact"
+          value={formData.contact}
+          onChange={handleChange}
+          className="input input-bordered w-full mb-2"
+          required
+        />
+        <textarea
+          name="additionalInfo"
+          value={formData.additionalInfo}
+          onChange={handleChange}
+          className="textarea textarea-bordered w-full mb-4"
+          rows={3}
+        ></textarea>
+        <button className="btn btn-primary w-full">Update</button>
+      </form>
+    </div>
   );
 };
 

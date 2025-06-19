@@ -62,70 +62,73 @@ const MyMarathons = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-2xl md:text-3xl lg:text-5xl text-center font-bold mb-10">
-        My Marathons
-      </h2>
+    <>
+      <title>My Marathons | Marathon Hub</title>
+      <div>
+        <h2 className="text-2xl md:text-3xl lg:text-5xl text-center font-bold mb-10">
+          My Marathons
+        </h2>
 
-      <h4 className="font-bold">
-        My Added Marathons Total : {createdMarathon.length}
-      </h4>
+        <h4 className="font-bold">
+          My Added Marathons Total : {createdMarathon.length}
+        </h4>
 
-      <div className="overflow-x-auto">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Marathons</th>
-              <th>Date(marathon start day)</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {createdMarathon.map((mar) => (
-              <tr key={mar._id}>
-                <td>
-                  <div className="flex items-center gap-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle h-12 w-12">
-                        <img src={mar.image} alt="marathon" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">{mar.title}</div>
-                      <div className="text-sm opacity-50 flex items-center gap-2">
-                        <CiLocationOn /> {mar.location}
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>{mar.marathonStartDate}</td>
-
-                <td className="space-x-2">
-                  <button
-                    onClick={() => navigate(`/marathons/${mar._id}`)}
-                    className="btn btn-sm btn-info"
-                  >
-                    Details
-                  </button>
-                  <button
-                    onClick={() => navigate(`/dashboard/edit/${mar._id}`)}
-                    className="btn btn-sm btn-warning"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(mar._id)}
-                    className="btn btn-sm btn-error"
-                  >
-                    Delete
-                  </button>
-                </td>
+        <div className="overflow-x-auto">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Marathons</th>
+                <th>Date(marathon start day)</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {createdMarathon.map((mar) => (
+                <tr key={mar._id}>
+                  <td>
+                    <div className="flex items-center gap-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle h-12 w-12">
+                          <img src={mar.image} alt="marathon" />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{mar.title}</div>
+                        <div className="text-sm opacity-50 flex items-center gap-2">
+                          <CiLocationOn /> {mar.location}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{mar.marathonStartDate}</td>
+
+                  <td className="space-x-2">
+                    <button
+                      onClick={() => navigate(`/marathons/${mar._id}`)}
+                      className="btn btn-sm btn-info"
+                    >
+                      Details
+                    </button>
+                    <button
+                      onClick={() => navigate(`/dashboard/edit/${mar._id}`)}
+                      className="btn btn-sm btn-warning"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(mar._id)}
+                      className="btn btn-sm btn-error"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

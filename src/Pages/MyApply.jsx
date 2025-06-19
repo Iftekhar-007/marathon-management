@@ -89,64 +89,67 @@ const MyApply = () => {
   );
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4 text-center">My Applications</h2>
+    <div>
+      <title>My Applications | Marathon Hub</title>
+      <div className="p-6 max-w-5xl mx-auto">
+        <h2 className="text-2xl font-bold mb-4 text-center">My Applications</h2>
 
-      <div className="mb-4 flex justify-center">
-        <input
-          type="text"
-          placeholder="Search by name..."
-          className="input input-bordered w-full max-w-md"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
-
-      {filteredApplications.length > 0 ? (
-        <div className="overflow-x-auto">
-          <table className="table w-full">
-            <thead className="bg-base-200">
-              <tr>
-                <th>#</th>
-                <th>Marathon Title</th>
-                <th>Start Date</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Contact</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredApplications.map((app, index) => (
-                <tr key={app._id}>
-                  <td>{index + 1}</td>
-                  <td>{app.marathonTitle}</td>
-                  <td>{new Date(app.startDate).toLocaleDateString()}</td>
-                  <td>{app.firstName}</td>
-                  <td>{app.lastName}</td>
-                  <td>{app.contact}</td>
-                  <td>
-                    <button
-                      onClick={() => handleEdit(app)}
-                      className="btn btn-xs btn-warning mr-2"
-                    >
-                      Update
-                    </button>
-                    <button
-                      onClick={() => handleDelete(app._id)}
-                      className="btn btn-xs btn-error"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="mb-4 flex justify-center">
+          <input
+            type="text"
+            placeholder="Search by name..."
+            className="input input-bordered w-full max-w-md"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
-      ) : (
-        <p className="text-center text-gray-500">No applications found.</p>
-      )}
+
+        {filteredApplications.length > 0 ? (
+          <div className="overflow-x-auto">
+            <table className="table w-full">
+              <thead className="bg-base-200">
+                <tr>
+                  <th>#</th>
+                  <th>Marathon Title</th>
+                  <th>Start Date</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Contact</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredApplications.map((app, index) => (
+                  <tr key={app._id}>
+                    <td>{index + 1}</td>
+                    <td>{app.marathonTitle}</td>
+                    <td>{new Date(app.startDate).toLocaleDateString()}</td>
+                    <td>{app.firstName}</td>
+                    <td>{app.lastName}</td>
+                    <td>{app.contact}</td>
+                    <td>
+                      <button
+                        onClick={() => handleEdit(app)}
+                        className="btn btn-xs btn-warning mr-2"
+                      >
+                        Update
+                      </button>
+                      <button
+                        onClick={() => handleDelete(app._id)}
+                        className="btn btn-xs btn-error"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="text-center text-gray-500">No applications found.</p>
+        )}
+      </div>
     </div>
   );
 };
