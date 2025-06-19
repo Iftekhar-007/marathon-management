@@ -9,7 +9,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
-    document.title = "Log In | HobbyHub";
+    document.title = "Log In | Marathon Hub";
 
     const setFavicon = (url) => {
       let link =

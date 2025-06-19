@@ -87,7 +87,7 @@ const LogIn = () => {
   };
   return (
     <>
-      <title>log in | HobbyHub</title>
+      <title>log in | Marathon Hub</title>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left"></div>
