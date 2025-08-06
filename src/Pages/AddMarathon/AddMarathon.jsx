@@ -68,7 +68,7 @@ const AddMarathon = () => {
       }
     } catch (err) {
       toast.error("Something went wrong.");
-      console.error(err);
+      // console.error(err);
     }
   };
 

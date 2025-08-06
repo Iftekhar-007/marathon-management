@@ -46,7 +46,7 @@ const LogIn = () => {
         navigate(location.state?.from?.pathname || "/");
       })
       .then((error) => {
-        console.log(error.message);
+        // console.log(error.message);
       });
   };
 

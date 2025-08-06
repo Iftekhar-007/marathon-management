@@ -73,7 +73,7 @@ const SignUp = () => {
           title: "Oops...",
           text: "Something went wrong with Google login!",
         });
-        console.error("Google login error:", error);
+        // console.error("Google login error:", error);
       });
   };
 
@@ -87,7 +87,7 @@ const SignUp = () => {
     const name = formData.get("name");
     const photo = formData.get("photo");
 
-    console.log(email, password, name, photo, userProfile);
+    // console.log(email, password, name, photo, userProfile);
 
     if (!passwordRegex.test(password)) {
       setPassError(
@@ -104,7 +104,7 @@ const SignUp = () => {
     userWithEmailAndPass(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         // Swal.fire({
         //   title: "User Logged In Successfully!",
         //   icon: "success",
@@ -116,11 +116,11 @@ const SignUp = () => {
             setUser({ ...user, displayName: name, photoURL: photo });
           })
           .catch((error) => {
-            console.log(error.message);
+            // console.log(error.message);
           });
 
         const newUser = { ...userProfile, uid: user.uid };
-        console.log(newUser);
+        // console.log(newUser);
 
         fetch("https://hobby-hub-server-lilac.vercel.app/users", {
           method: "POST",
@@ -153,7 +153,7 @@ const SignUp = () => {
         // console.log(user);
       })
       .then((error) => {
-        console.log(error.message);
+        // console.log(error.message);
       });
   };
 

@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   const { user, logOutUser } = use(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handleLogOut = () => {
     logOutUser()

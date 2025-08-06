@@ -49,7 +49,7 @@ const MyApply = () => {
               navigate("/login");
             });
           } else {
-            console.error(err);
+            // console.error(err);
           }
         });
     }
@@ -60,7 +60,7 @@ const MyApply = () => {
   };
 
   const handleDelete = (id) => {
-    console.log();
+    // console.log();
 
     Swal.fire({
       title: "Are you sure?",

@@ -50,14 +50,14 @@ const MyMarathons = () => {
               navigate("/login");
             });
           } else {
-            console.error(err);
+            // console.error(err);
           }
         });
     }
   }, [user?.email, user?.accessToken, logOutUser, navigate]);
 
   const handleDelete = (id) => {
-    console.log();
+    // console.log();
 
     Swal.fire({
       title: "Are you sure?",
@@ -68,7 +68,7 @@ const MyMarathons = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      console.log(result.isConfirmed);
+      // console.log(result.isConfirmed);
       if (result.isConfirmed) {
         fetch(`https://marathon-hub-ecru.vercel.app/marathons/${id}`, {
           method: "DELETE",

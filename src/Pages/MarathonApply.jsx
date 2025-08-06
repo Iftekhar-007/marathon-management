@@ -70,7 +70,7 @@ const MarathonApply = () => {
       toast.success("Successfully Registered!");
       navigate("/dashboard/myapply");
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       toast.error("Registration failed");
     }
   };
