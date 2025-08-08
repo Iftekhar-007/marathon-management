@@ -15,7 +15,7 @@ To build a Marathon Management Website where organizers can create and manage ma
 ---
 
 ## 🖼️ Screenshot
-![Marathon Management Screenshot]([[https://i.ibb.co/xxxxx/filename.png](https://i.postimg.cc/7Y6fPwM9/screencapture-marathon-hub-3bd7d-web-app-2025-08-08-11-13-25.png)](https://i.ibb.co.com/Kcn4YKZr/screencapture-marathon-hub-3bd7d-web-app-2025-08-08-11-13-25.png))
+![Marathon Management Screenshot](https://ibb.co.com/1Ycy3zVm)
 
 
 
