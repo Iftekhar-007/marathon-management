@@ -111,7 +111,7 @@ Visit: http://localhost:5173/ for the client side.
 🌐 Live Project Links
 Live Site: https://your-live-site-link.com
 
-Client Repo: Client Repository Link
+Client Repo:  https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-Iftekhar-007
 
-Server Repo: Server Repository Link
+Server Repo:  https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-Iftekhar-007
 
