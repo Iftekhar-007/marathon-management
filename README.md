@@ -89,7 +89,7 @@ npm install
 
 ---
 
-Set up environment variables
+4.Set up environment variables
 
 Create a .env file in both client and server directories.
 
