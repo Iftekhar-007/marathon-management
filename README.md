@@ -9,7 +9,7 @@ It features **role-based dashboards** for admins, organizers, and runners, provi
 
 
 ---
-🎯 Objective
+#🎯 Objective
 To build a Marathon Management Website where organizers can create and manage marathons, and participants can easily register, join, and track events in real time.
 
 ---
