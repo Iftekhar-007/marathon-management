@@ -1,16 +1,5 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
 
 # 🏃 Marathon Management System
 
@@ -18,11 +7,16 @@ If you are developing a production application, we recommend using TypeScript wi
 The **Marathon Management System** is a web platform designed to help event organizers manage marathons efficiently and for participants to easily register for events.  
 It features **role-based dashboards** for admins, organizers, and runners, providing tools for event creation, participant management, and real-time registration tracking.
 
+
+---
+🎯 Objective
+To build a Marathon Management Website where organizers can create and manage marathons, and participants can easily register, join, and track events in real time.
+
 ---
 
 ## 🖼️ Screenshot
-![Marathon Management Screenshot](https://i.ibb.co.com/your-direct-image-link.png)  
-*(Replace with the actual direct link to your screenshot)*
+![Marathon Management Screenshot](https://ibb.co.com/1Ycy3zVm)  
+
 
 ---
 
@@ -65,4 +59,55 @@ dependencies:
     "sweetalert2": "^11.22.0",
     "swiper": "^11.2.8",
     "tailwindcss": "^4.1.10",
+
+
+##⚙️ How to Run Locally
+
+1.Clone the repositories
+
+bash
+# Client side
+git clone <client-side-repo-link>
+
+# Server side
+git clone <server-side-repo-link>
+
+2.Navigate to each folder
+
+bash
+cd client-folder
+cd server-folder
+
+3.Install dependencies
+
+bash
+npm install 
+
+---
+
+Set up environment variables
+
+Create a .env file in both client and server directories.
+
+Add your Firebase config, MongoDB URI, and any other required environment keys.
+---
+
+Run the development servers
+
+bash
+# Client
+npm run dev
+
+# Server
+npm start
+
+Open in Browser
+Visit: http://localhost:5173/ for the client side.
+
+🌐 Live Project Links
+Live Site: https://your-live-site-link.com
+
+Client Repo: Client Repository Link
+
+Server Repo: Server Repository Link
 
