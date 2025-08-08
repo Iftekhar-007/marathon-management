@@ -62,7 +62,10 @@ dependencies:
     "tailwindcss": "^4.1.10",
 
 
-##⚙️ How to Run Locally
+
+---
+
+# How to Run Locally
 
 1.Clone the repositories
 
