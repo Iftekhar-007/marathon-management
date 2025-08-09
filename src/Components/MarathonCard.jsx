@@ -25,9 +25,15 @@ const MarathonCard = ({ marathon }) => {
             <Lottie className="w-[44px]" animationData={run}></Lottie>
           </div>
           <div className="flex justify-start items-start gap-2.5">
-            <p>
+            {/* <p>
               <b>Description: </b>
               {marathon.description}
+            </p> */}
+
+            <p>
+              <b>Description: </b>
+              {marathon.description.split(" ").slice(0, 6).join(" ") +
+                (marathon.description.split(" ").length > 6 ? "..." : "")}
             </p>
           </div>
           <div className="flex justify-start items-center gap-2">

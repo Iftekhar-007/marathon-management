@@ -1,38 +1,15 @@
 import React, { useEffect, useState } from "react";
 import MarathonCard from "../Components/MarathonCard";
+// import AuthProvider from "../Context/AuthProvider";
 
 const Marathons = ({ limit, upcoming }) => {
   const [marathons, setMarathons] = useState([]);
   const [sortLatestFirst, setSortLatestFirst] = useState(true);
-
-  // useEffect(() => {
-  //   let url = "https://marathon-hub-ecru.vercel.app/marathons";
-
-  //   if (limit) {
-  //     url += `?limit=${limit}`;
-  //   }
-
-  //   fetch(url)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       let result = [...data];
-
-  //       if (upcoming) {
-  //         const today = new Date();
-  //         result = result.filter((m) => new Date(m.marathonStartDate) > today);
-  //       }
-
-  //       result.sort((a, b) =>
-  //         sortLatestFirst
-  //           ? new Date(b.createdAt) - new Date(a.createdAt)
-  //           : new Date(a.createdAt) - new Date(b.createdAt)
-  //       );
-
-  //       setMarathons(result);
-  //     });
-  // }, [limit, upcoming, sortLatestFirst]);
+  // const { loading, user } = AuthProvider();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     let url = "https://marathon-hub-ecru.vercel.app/marathons?";
 
     if (limit) {
@@ -55,6 +32,7 @@ const Marathons = ({ limit, upcoming }) => {
         );
 
         setMarathons(result);
+        setLoading(false);
       });
   }, [limit, upcoming, sortLatestFirst]);
 
@@ -75,11 +53,17 @@ const Marathons = ({ limit, upcoming }) => {
           </button>
         </div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-          {marathons.map((marathon) => (
-            <MarathonCard key={marathon._id} marathon={marathon} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex justify-center items-center min-h-screen h-40">
+            <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        ) : (
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+            {marathons.map((marathon) => (
+              <MarathonCard key={marathon._id} marathon={marathon} />
+            ))}
+          </div>
+        )}
 
         {limit && (
           <div className="text-center mt-10">

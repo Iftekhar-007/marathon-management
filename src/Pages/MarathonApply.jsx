@@ -75,7 +75,12 @@ const MarathonApply = () => {
     }
   };
 
-  if (!marathon) return <div>Loading...</div>;
+  if (!marathon)
+    return (
+      <div className="flex justify-center items-center min-h-screen h-40">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
 
   return (
     <>
