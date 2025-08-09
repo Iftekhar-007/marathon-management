@@ -4,7 +4,7 @@ const UpComing = () => {
   return (
     <div className="mb-20 lg:w-[1440px] mx-auto">
       <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-10">
-        Upcoming Marathons
+        Featured Marathons
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {/* card 1 */}
