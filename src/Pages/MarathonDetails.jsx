@@ -73,6 +73,18 @@ const MarathonDetails = () => {
             </p>
           </div>
 
+          <div className="flex justify-start items-center gap-2.5 my-4">
+            <Lottie
+              animationData={calendarLot}
+              loop={true}
+              className="w-[20px]"
+            ></Lottie>
+            <p>
+              <b>Marathon Start Date : </b>
+              {detailData.marathonStartDate}
+            </p>
+          </div>
+
           <div className="flex justify-start items-center gap-2.5">
             <FaPersonRunning />
             <p>

@@ -5,22 +5,48 @@ const Marathons = ({ limit, upcoming }) => {
   const [marathons, setMarathons] = useState([]);
   const [sortLatestFirst, setSortLatestFirst] = useState(true);
 
+  // useEffect(() => {
+  //   let url = "https://marathon-hub-ecru.vercel.app/marathons";
+
+  //   if (limit) {
+  //     url += `?limit=${limit}`;
+  //   }
+
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       let result = [...data];
+
+  //       if (upcoming) {
+  //         const today = new Date();
+  //         result = result.filter((m) => new Date(m.marathonStartDate) > today);
+  //       }
+
+  //       result.sort((a, b) =>
+  //         sortLatestFirst
+  //           ? new Date(b.createdAt) - new Date(a.createdAt)
+  //           : new Date(a.createdAt) - new Date(b.createdAt)
+  //       );
+
+  //       setMarathons(result);
+  //     });
+  // }, [limit, upcoming, sortLatestFirst]);
+
   useEffect(() => {
-    let url = "https://marathon-hub-ecru.vercel.app/marathons";
+    let url = "https://marathon-hub-ecru.vercel.app/marathons?";
 
     if (limit) {
-      url += `?limit=${limit}`;
+      url += `limit=${limit}&`;
+    }
+
+    if (upcoming) {
+      url += `upcoming=true`;
     }
 
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         let result = [...data];
-
-        if (upcoming) {
-          const today = new Date();
-          result = result.filter((m) => new Date(m.marathonStartDate) > today);
-        }
 
         result.sort((a, b) =>
           sortLatestFirst

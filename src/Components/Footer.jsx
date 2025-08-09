@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 
 const Footer = () => {
   return (
-    <div className=" bg-base-200">
+    <div className=" bg-base-300">
       <footer className="footer lg:mt-20 sm:footer-horizontal justify-between text-base-content p-10 lg:w-[1440px] mx-auto">
         <aside>
           <svg
