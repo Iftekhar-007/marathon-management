@@ -11,7 +11,7 @@ const MarathonCard = ({ marathon }) => {
   // const { user } = use(AuthContext);
   return (
     <div>
-      <div className="card bg-base-100 shadow-sm">
+      <div className="card bg-base-100 shadow-sm hover:bg-base-300">
         <figure>
           <img
             className="h-[580px] w-full object-cover"
@@ -71,7 +71,7 @@ const MarathonCard = ({ marathon }) => {
           <div className="card-actions justify-start">
             <NavLink
               to={`/marathons/${marathon._id}`}
-              className="btn border-0 bg-transparent hover:bg-transparent hover:border-0 hover:shadow-none text-red-400"
+              className="btn border-0 bg-transparent hover:bg-transparent hover:border-0 hover:shadow-none text-orange-500"
             >
               View Details...
             </NavLink>

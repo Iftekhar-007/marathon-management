@@ -67,7 +67,10 @@ const Marathons = ({ limit, upcoming }) => {
 
         {limit && (
           <div className="text-center mt-10">
-            <a href="/marathons" className="btn btn-outline btn-primary">
+            <a
+              href="/marathons"
+              className="btn btn-outline text-orange-500 hover:text-black"
+            >
               See All Marathons
             </a>
           </div>

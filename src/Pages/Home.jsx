@@ -12,7 +12,9 @@ const Home = () => {
       <div className="bg-base-100">
         <Sliders></Sliders>
         <Marathons limit={6} upcoming={true} />
+
         <Marathons limit={6} />
+
         <Legends></Legends>
         <Sponsor></Sponsor>
       </div>
