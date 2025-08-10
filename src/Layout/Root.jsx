@@ -10,7 +10,7 @@ const Root = () => {
   const isDashboard = location.pathname.startsWith("/dashboard");
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       {!isDashboard && <Header />}
       <Outlet />
       {!isDashboard && <Footer />}
