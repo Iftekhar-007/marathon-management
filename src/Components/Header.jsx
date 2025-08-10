@@ -66,8 +66,14 @@ const Header = () => {
                 <NavLink to="/marathons">Marathons</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard">Dashboard</NavLink>
+                <NavLink to="/newslatter">News Letter</NavLink>
               </li>
+
+              {user && (
+                <li>
+                  <NavLink to="/dashboard">Dashboard</NavLink>
+                </li>
+              )}
             </ul>
           </div>
           <NavLink to="/" className="text-2xl font-bold">
@@ -100,8 +106,13 @@ const Header = () => {
                 <NavLink to="/marathons">Marathons</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard">Dashboard</NavLink>
+                <NavLink to="/newsletter">News Letter</NavLink>
               </li>
+              {user && (
+                <li>
+                  <NavLink to="/dashboard">Dashboard</NavLink>
+                </li>
+              )}
             </ul>
           </div>
           {user ? (

@@ -83,7 +83,7 @@ const sponsors = [
 export default function Sponsor() {
   return (
     <div>
-      <h2 className="lg:font-bold text-5xl text-center lg:mb-10 mb-5">
+      <h2 className="lg:font-bold text-5xl text-center lg:mb-10 mb-5 dark:text-orange-500">
         Sponsors
       </h2>
       <div
@@ -91,7 +91,7 @@ export default function Sponsor() {
           background: "linear-gradient(90deg, #f8fafc, #f1f5f9)",
           padding: "40px 0",
         }}
-        className="lg:w-[1440px] mx-auto"
+        className="lg:w-[1440px] rounded-2xl mx-auto"
       >
         <Marquee
           direction="left"

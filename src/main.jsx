@@ -21,6 +21,7 @@ import EditMarathon from "./Pages/EditMarathon.jsx";
 import MarathonApply from "./Pages/MarathonApply.jsx";
 import MyApply from "./Pages/MyApply.jsx";
 import UpdateApply from "./Pages/UpdateApply.jsx";
+import NewsletterSection from "./Pages/NewsLetterSection.jsx";
 // import Login from "./Components/Login.jsx";
 
 const router = createBrowserRouter([
@@ -43,11 +44,11 @@ const router = createBrowserRouter([
       {
         path: "/marathons",
         // Component: Marathons,
-        element: (
-          <PrivateRoutes>
-            <Marathons></Marathons>
-          </PrivateRoutes>
-        ),
+        element: <Marathons></Marathons>,
+      },
+      {
+        path: "/newsletter",
+        Component: NewsletterSection,
       },
       {
         path: "/dashboard",

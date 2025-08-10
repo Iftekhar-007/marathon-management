@@ -39,9 +39,9 @@ const Marathons = ({ limit, upcoming }) => {
   return (
     <div>
       <title>Marathons | Marathon Hub</title>
-      <div className="lg:w-[1440px] mx-auto my-20">
-        <h2 className="lg:text-5xl font-bold mb-6 text-center">
-          {upcoming ? "Upcoming Marathons" : "Marathons"}
+      <div className="lg:w-[1440px] mx-auto">
+        <h2 className="lg:text-5xl font-bold my-6 text-center dark:text-orange-500">
+          {upcoming ? "Upcoming Marathons" : "Featured Marathons"}
         </h2>
 
         <div className="flex justify-end mb-4 px-4">

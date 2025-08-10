@@ -3,7 +3,7 @@ import React from "react";
 const Legends = () => {
   return (
     <div className="lg:w-[1440px] mx-auto mb-20">
-      <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-10">
+      <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold my-6 text-center mb-10 dark:text-orange-500">
         Legends are Coming
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
