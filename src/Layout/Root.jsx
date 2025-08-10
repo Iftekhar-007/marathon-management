@@ -1,17 +1,20 @@
 import React from "react";
 import Header from "../Components/Header";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import Footer from "../Components/Footer";
 import { ToastContainer } from "react-toastify";
 
 const Root = () => {
-  return (
-    <div className="">
-      <Header></Header>
-      <Outlet></Outlet>
-      <Footer></Footer>
+  const location = useLocation();
 
-      <ToastContainer></ToastContainer>
+  const isDashboard = location.pathname.startsWith("/dashboard");
+
+  return (
+    <div>
+      {!isDashboard && <Header />}
+      <Outlet />
+      {!isDashboard && <Footer />}
+      <ToastContainer />
     </div>
   );
 };

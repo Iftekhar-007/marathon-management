@@ -16,7 +16,7 @@ const AboutUs = () => {
         the past and races toward the future.
       </p>
       <p>
-        <b>Contact:</b> Email: contact@runnorg.com
+        <b>Contact:</b> Email: runn@gmail.com
       </p>
     </div>
   );
