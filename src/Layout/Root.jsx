@@ -1,7 +1,8 @@
 import React from "react";
-import Header from "../Components/Header";
+// import Header from "../Components/Header";
 import { Outlet, useLocation } from "react-router";
 import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 import { ToastContainer } from "react-toastify";
 
 const Root = () => {
@@ -10,8 +11,8 @@ const Root = () => {
   const isDashboard = location.pathname.startsWith("/dashboard");
 
   return (
-    <div className="overflow-x-hidden">
-      {!isDashboard && <Header />}
+    <div>
+      {!isDashboard && <Header></Header>}
       <Outlet />
       {!isDashboard && <Footer />}
       <ToastContainer />
