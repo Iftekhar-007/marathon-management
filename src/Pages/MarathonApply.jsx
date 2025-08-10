@@ -45,6 +45,36 @@ const MarathonApply = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const registrationData = {
+  //     email: user.email,
+  //     marathonId: id,
+  //     marathonTitle: marathon.title,
+  //     startDate: marathon.marathonStartDate,
+  //     ...formData,
+  //   };
+
+  //   try {
+  //     // 1. Save registration
+  //     const res = await fetch(
+  //       `https://marathon-hub-ecru.vercel.app/applications`,
+  //       {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(registrationData),
+  //       }
+  //     );
+
+  //     toast.success("Successfully Registered!");
+  //     navigate("/dashboard/myapply");
+  //   } catch (err) {
+  //     // console.error(err);
+  //     toast.error("Registration failed");
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -57,7 +87,6 @@ const MarathonApply = () => {
     };
 
     try {
-      // 1. Save registration
       const res = await fetch(
         `https://marathon-hub-ecru.vercel.app/applications`,
         {
@@ -67,11 +96,17 @@ const MarathonApply = () => {
         }
       );
 
+      const data = await res.json();
+
+      if (!res.ok) {
+        toast.error(data.error || "Registration failed");
+        return;
+      }
+
       toast.success("Successfully Registered!");
       navigate("/dashboard/myapply");
     } catch (err) {
-      // console.error(err);
-      toast.error("Registration failed");
+      toast.error("Something went wrong");
     }
   };
 
