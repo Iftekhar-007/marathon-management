@@ -71,6 +71,12 @@ const Header = () => {
 
               {user && (
                 <li>
+                  <NavLink to="/aboutus">About Us</NavLink>
+                </li>
+              )}
+
+              {user && (
+                <li>
                   <NavLink to="/dashboard">Dashboard</NavLink>
                 </li>
               )}
@@ -108,6 +114,11 @@ const Header = () => {
               <li>
                 <NavLink to="/newsletter">News Letter</NavLink>
               </li>
+              {user && (
+                <li>
+                  <NavLink to="/aboutus">About Us</NavLink>
+                </li>
+              )}
               {user && (
                 <li>
                   <NavLink to="/dashboard">Dashboard</NavLink>

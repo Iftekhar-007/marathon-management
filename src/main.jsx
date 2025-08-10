@@ -22,6 +22,7 @@ import MarathonApply from "./Pages/MarathonApply.jsx";
 import MyApply from "./Pages/MyApply.jsx";
 import UpdateApply from "./Pages/UpdateApply.jsx";
 import NewsletterSection from "./Pages/NewsLetterSection.jsx";
+import AboutUs from "./Pages/AboutUs.jsx";
 // import Login from "./Components/Login.jsx";
 
 const router = createBrowserRouter([
@@ -49,6 +50,15 @@ const router = createBrowserRouter([
       {
         path: "/newsletter",
         Component: NewsletterSection,
+      },
+
+      {
+        path: "/aboutus",
+        element: (
+          <PrivateRoutes>
+            <AboutUs></AboutUs>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/dashboard",

@@ -1,5 +1,6 @@
 ul li a.active{
-    text-decoration: underline;
+    background-color: orange;
+    color: whitesmoke;
 }
 
 .swiper {
