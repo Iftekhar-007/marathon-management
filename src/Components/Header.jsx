@@ -86,22 +86,7 @@ const Header = () => {
             Ru<span className="text-orange-500">N</span>n
           </NavLink>
         </div>
-        {/* <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/allgroups">All Groups</NavLink>
-            </li>
-            <li>
-              <NavLink to={`/mygroups/${user?.email}`}>My groups</NavLink>
-            </li>
-            <li>
-              <NavLink to="/creategroup">Create Group</NavLink>
-            </li>
-          </ul>
-        </div> */}
+
         <div className="navbar-end">
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
